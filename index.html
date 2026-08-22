@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B@S Computerhulp - Betrouwbare computerhulp & reparatie in Waddinxveen, Gouda & Zuidplas</title>
+    <style>
+        :root {
+            --primary-dark: #001c3d;
+            --accent-blue: #0e62a3;
+            --light-bg: #f4f7fa;
+            --text-color: #333333;
+            --white: #ffffff;
+            --success-green: #25D366;
+            --warning-orange: #ff9800;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .logo-text span {
+            color: var(--accent-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #082d56 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--success-green);
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #0c5289;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--success-green);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.25);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Container & Section Base */
+        .section {
+            padding: 70px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            color: var(--primary-dark);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--accent-blue);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 15px;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            color: var(--accent-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Safe Alert Box (Back-up reminder) */
+        .safety-alert {
+            background-color: #fff9e6;
+            border-left: 5px solid var(--warning-orange);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 40px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .safety-alert-icon {
+            font-size: 24px;
+            color: var(--warning-orange);
+        }
+
+        .safety-alert-text h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        /* Agenda / Afspraak Plannen Section */
+        .agenda-section {
+            background-color: var(--white);
+        }
+
+        .booking-card {
+            background-color: var(--light-bg);
+            border-radius: 12px;
+            padding: 35px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid #cccccc;
+            font-size: 15px;
+            background-color: var(--white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tarieven & Tabellen */
+        .pricing-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .pricing-table th, .pricing-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .pricing-table th {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .pricing-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .badge-loc {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #e2eaf4;
+            color: var(--accent-blue);
+        }
+
+        .pricing-notes {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            background-color: #eef4fa;
+            padding: 18px;
+            border-radius: 6px;
+            border: 1px solid #d0e0f0;
+        }
+
+        .sub-title {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-top: 45px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Contact & Info */
+        .contact-section {
+            background-color: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        .contact-info h3 {
+            color: var(--primary-dark);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .info-list-icon {
+            color: var(--accent-blue);
+            font-weight: bold;
+            width: 20px;
+        }
+
+        .contact-box {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .contact-box h4 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+        footer a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/31627115982?text=Hallo%20Bas,%20ik%20wil%20graag%20een%20afspraak%20maken%20voor%20computerhulp..." class="whatsapp-float" target="_blank" title="Direct WhatsAppen met Bas">
+        💬
+    </a>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="logo bas computerhulp.png" alt="B@S Computerhulp" class="logo-img">
+                <span class="logo-text">B<span>@</span>S Computerhulp</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#diensten">Diensten</a></li>
+                    <li><a href="#agenda">Agenda / Afspraak</a></li>
+                    <li><a href="#tarieven">Tarieven</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Betrouwbare Computerhulp &amp; Reparatie aan Huis</h1>
+            <p>Hulp bij jou thuis, in de werkplaats of op afstand in de regio Waddinxveen, Gouda &amp; Zuidplas. Snel, vakkundig en transparant gefactureerd.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/31627115982?text=Hallo%20Bas,%20ik%20heb%20een%20vraag%20over%20mijn%20computer..." class="btn btn-whatsapp" target="_blank">
+                    <span>💬 WhatsApp: +31 6 27115982</span>
+                </a>
+                <a href="#agenda" class="btn btn-primary">
+                    <span>📅 Plan een afspraak in</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="diensten">
+        <div class="container">
+            <h2 class="section-title">Onze Diensten</h2>
+            
+            <div class="services-grid">
+                <!-- Categorie 1 -->
+                <div class="service-card">
+                    <h3>Installatie &amp; Onderhoud</h3>
+                    <ul>
+                        <li>PC / Laptop herinstallatie (schoon of met behoud van bestanden/instellingen)</li>
+                        <li>Overzetten van bestanden, foto's, e-mail en programma's</li>
+                        <li>Telefoon &amp; tablet herinstalleren of overzetten naar nieuw apparaat</li>
+                        <li>Systeem updates &amp; automatische back-up instellen</li>
+                    </ul>
+                </div>
+
+                <!-- Categorie 2 -->
+                <div class="service-card">
+                    <h3>Problemen &amp; Reparatie</h3>
+                    <ul>
+                        <li>PC / Laptop APK &amp; grondige virusscan/verwijdering</li>
+                        <li>Opstartproblemen, trage systemen en foutmeldingen verhelpen</li>
+                        <li>Bestandsherstel / Data Recovery bij (externe) harde schijven</li>
+                        <li>Printer installeren &amp; toner/cartridge vervangen</li>
+                        <li>Wifi &amp; netwerkproblemen oplossen</li>
+                    </ul>
+                </div>
+
+                <!-- Categorie 3 -->
+                <div class="service-card">
+                    <h3>Advies, Consult &amp; Websites</h3>
+                    <ul>
+                        <li>Consult &amp; advies aan huis of op afstand</li>
+                        <li>Onafhankelijk aankoopadvies op maat</li>
+                        <li>Wifi-consult bij jou thuis</li>
+                        <li>Professionele website maken (excl. hosting)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Veiligheids Callout -->
+            <div class="safety-alert" id="veiligheid">
+                <div class="safety-alert-icon">⚠️</div>
+                <div class="safety-alert-text">
+                    <h4>Belangrijk voor onze afspraak: Back-up</h4>
+                    <p>Omdat we met computersystemen en software werken, ben je als klant <strong>altijd zelf verantwoordelijk</strong> voor een recente back-up van al je bestanden, foto's en e-mails voordat de werkzaamheden beginnen. Heb je hier hulp bij nodig? Geef het gerust vooraf aan, dan doen we dit eerst samen!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agenda / Afspraak Plannen Section -->
+    <section class="section agenda-section" id="agenda">
+        <div class="container">
+            <h2 class="section-title">Plan een Afspraak in de Agenda</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Kies een datum en tijdstip waarop je hulp aan huis, in de werkplaats en/of op afstand wenst. Ik bevestig de afspraak direct via WhatsApp of e-mail.</p>
+            
+            <div class="booking-card">
+                <form action="mailto:info@bascomputerhulp.nl" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="naam">Je Naam *</label>
+                            <input type="text" id="naam" name="Naam" class="form-control" placeholder="bijv. Jan de Vries" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefoon">Telefoonnummer / WhatsApp *</label>
+                            <input type="tel" id="telefoon" name="Telefoon" class="form-control" placeholder="06 - 12345678" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="datum">Gewenste Datum *</label>
+                            <input type="date" id="datum" name="Gewenste Datum" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tijd">Gewenst Tijdstip *</label>
+                            <select id="tijd" name="Gewenst Tijdstip" class="form-control" required>
+                                <option value="">Kies een dagdeel...</option>
+                                <option value="Ochtend (09:00 - 12:00)">Ochtend (09:00 - 12:00)</option>
+                                <option value="Middag (13:00 - 17:00)">Middag (13:00 - 17:00)</option>
+                                <option value="Avond (18:30 - 21:00)">Avond (18:30 - 21:00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type_hulp">Type Hulp / Locatie *</label>
+                        <select id="type_hulp" name="Type Hulp" class="form-control" required>
+                            <option value="Aan huis">Aan huis</option>
+                            <option value="Werkplaats">Werkplaats</option>
+                            <option value="Hulp op afstand">Hulp op afstand</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="omschrijving">Omschrijving van de vraag of het probleem</label>
+                        <textarea id="omschrijving" name="Omschrijving" rows="4" class="form-control" placeholder="Waar kan ik je mee helpen? (bijv. APK + Virusscan, herinstallatie, bestandsherstel, printer instellen...)"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        📅 Afspraakaanvraag Versturen
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarievenlijst -->
+    <section class="section pricing" id="tarieven">
+        <div class="container">
+            <h2 class="section-title">Officiële Prijslijst</h2>
+            <p style="text-align: center; margin-bottom: 25px;">Standaard tarief aan huis/werkplaats: <strong>€ 15,- per kwartier</strong> (€ 60,- per uur). Duidelijke, vaste tarieven voor veelvoorkomende diensten.</p>
+            
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Dienst</th>
+                            <th>Gem. Tijdsduur</th>
+                            <th>Prijs</th>
+                            <th>Locatie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Hulp op afstand nu bovenaan! -->
+                        <tr style="background-color: #f0f7ff;">
+                            <td><strong>Consult hulp op afstand</strong></td>
+                            <td>Per kwartier</td>
+                            <td><strong>€ 7,50 per kwartier</strong> <small>(€ 30,- per uur)</small></td>
+                            <td><span class="badge-loc">Op afstand</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Onderzoekskosten (Probleem onbekend)</strong><br><small>(Vervalt bij uitvoering van de uiteindelijke reparatie/dienst)</small></td>
+                            <td>-</td>
+                            <td><strong>€ 30,-</strong></td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bestandsherstel / Data Recovery</strong><br><small>(Van kapotte interne of externe harde schijven)</small></td>
+                            <td>Afhankelijk van schade</td>
+                            <td><strong>Prijsvoorstel vooraf</strong><br><small>(op basis van grootte &amp; schade)</small></td>
+                            <td><span class="badge-loc">Werkplaats</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PC / Laptop Herinstallatie (schoon)</strong></td>
+                            <td>30 min.</td>
+                            <td>€ 30,-</td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PC / Laptop Herinstallatie met bestandsbehoud</strong></td>
+                            <td>1,5 uur</td>
+                            <td>€ 90,- <small>(daarna € 15/kwartier)</small></td>
+                            <td><span class="badge-loc">Werkplaats</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PC / Laptop Herinstallatie met bestandsbehoud &amp; instellingen</strong><br><small>(behoud e-mail, programma's &amp; instellingen)</small></td>
+                            <td>2 uur</td>
+                            <td>€ 120,- <small>(daarna € 15/kwartier)</small></td>
+                            <td><span class="badge-loc">Werkplaats</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Telefoon / Tablet schoon installeren</strong><br><small>(zonder bestanden overzetten)</small></td>
+                            <td>45 min.</td>
+                            <td>€ 45,-</td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Telefoon / Tablet oude telefoon naar nieuwe alles overzetten</strong></td>
+                            <td>2 uur</td>
+                            <td>€ 120,- <small>(daarna € 15/kwartier)</small></td>
+                            <td><span class="badge-loc">Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PC / Laptop Virusscan &amp; verwijdering</strong></td>
+                            <td>1 uur</td>
+                            <td>€ 60,- <small>(daarna € 15/kwartier)</small></td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis / Op afstand</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PC / Laptop APK</strong></td>
+                            <td>1 uur</td>
+                            <td>€ 60,- <small>(daarna € 15/kwartier)</small></td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PC / Laptop APK + Virusscan Combi-deal</strong></td>
+                            <td>2 uur</td>
+                            <td><strong>€ 90,-</strong> <small style="color: green;">(€ 30,- pakketkorting!)</small></td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis / Op afstand</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Consult aan huis</strong></td>
+                            <td>Per kwartier</td>
+                            <td>€ 15,- per kwartier <small>(excl. voorrijdkosten)</small></td>
+                            <td><span class="badge-loc">Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Website maken</strong></td>
+                            <td>Per kwartier</td>
+                            <td>€ 15,- per kwartier <small>(excl. hostingkosten)</small></td>
+                            <td><span class="badge-loc">Werkplaats / Aan huis / Op afstand</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Printer installeren</strong></td>
+                            <td>30 min.</td>
+                            <td>€ 30,-</td>
+                            <td><span class="badge-loc">Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Printer cartridge / toner vervangen</strong></td>
+                            <td>15 min.</td>
+                            <td>€ 15,- <small>(excl. kosten cartridge/toner)</small></td>
+                            <td><span class="badge-loc">Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wifi consult</strong></td>
+                            <td>45 min.</td>
+                            <td>€ 45,-</td>
+                            <td><span class="badge-loc">Aan huis</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Automatische back-up instellen</strong></td>
+                            <td>30 min.</td>
+                            <td>€ 30,-</td>
+                            <td><span class="badge-loc">Aan huis / Werkplaats / Op afstand</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabel Voorrijdkosten -->
+            <h3 class="sub-title">Overzicht Voorrijdkosten</h3>
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Regio / Plaats</th>
+                            <th>Voorrijdtarief</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Waddinxveen</strong></td>
+                            <td><strong style="color: green;">Gratis</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zuidplas</strong> <small>(Zevenhuizen, Moerkapelle, Nieuwerkerk, Moordrecht)</small></td>
+                            <td><strong>€ 5,-</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gouda</strong></td>
+                            <td><strong>€ 10,-</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nesselande</strong></td>
+                            <td><strong>€ 10,-</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Boskoop</strong></td>
+                            <td><strong>€ 10,-</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Alphen a/d Rijn</strong></td>
+                            <td><strong>€ 15,-</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bodegraven-Reeuwijk</strong></td>
+                            <td><strong>€ 15,-</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pricing-notes">
+                <p>📄 <strong>Afhandeling &amp; Facturatie:</strong> De werkzaamheden van B@S Computerhulp worden netjes en officieel gefactureerd via ons aangesloten verloningssysteem (Verloning.nl). Je ontvangt na afloop van de werkzaamheden overzichtelijk een factuur of iDEAL-betaallink per e-mail.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Neem Contact Op</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Direct hulp nodig?</h3>
+                    <p>Heb je een vraag, wil je advies, of wil je direct een afspraak maken? Ik help je graag op een moment dat het jou uitkomt.</p>
+                    
+                    <ul class="info-list">
+                        <li><span class="info-list-icon">📍</span> Waddinxveen, Gouda, Zuidplas &amp; Omstreken</li>
+                        <li><span class="info-list-icon">📞</span> +31 6 27115982</li>
+                        <li><span class="info-list-icon">✉️</span> info@bascomputerhulp.nl</li>
+                        <li><span class="info-list-icon">🕒</span> Op afspraak</li>
+                    </ul>
+                </div>
+
+                <div class="contact-box">
+                    <h4>Direct een bericht sturen?</h4>
+                    <p>De snelste manier om een afspraak te maken of je vraag te stellen is via WhatsApp.</p>
+                    <a href="https://wa.me/31627115982?text=Hallo%20Bas,%20ik%20wil%20graag%20een%20afspraak%20maken%20voor%20computerhulp..." class="btn btn-whatsapp" style="width: 100%; justify-content: center; margin-bottom: 15px;" target="_blank">
+                        💬 Stuur een WhatsApp (+31 6 27115982)
+                    </a>
+                    <a href="mailto:info@bascomputerhulp.nl" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        ✉️ Stuur een E-mail
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 B@S Computerhulp. Alle rechten voorbehouden.</p>
+        <p>Gevestigd te Waddinxveen | Geautomatiseerde facturatie via Verloningssysteem | <a href="#veiligheid">Algemene Voorwaarden</a></p>
+    </footer>
+
+</body>
+</html>
