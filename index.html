@@ -152,6 +152,15 @@
             background-color: #0c5289;
         }
 
+        .btn-remote {
+            background-color: #ff9800;
+            color: var(--white);
+        }
+
+        .btn-remote:hover {
+            background-color: #e08700;
+        }
+
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
@@ -380,6 +389,14 @@
             text-align: center;
         }
 
+        /* Bottom Remote Banner */
+        .bottom-remote-banner {
+            background-color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #e1e8ed;
+        }
+
         /* Contact & Info */
         .contact-section {
             background-color: var(--light-bg);
@@ -517,6 +534,9 @@
                 <a href="https://wa.me/31627115982?text=Hallo%20Bas,%20ik%20heb%20een%20vraag%20over%20mijn%20computer..." class="btn btn-whatsapp" target="_blank">
                     <span>💬 WhatsApp: +31 6 27115982</span>
                 </a>
+                <a href="https://github.com/rustdesk/rustdesk/releases/download/1.5.0/rustdesk-1.5.0-x86_64.exe" class="btn btn-remote" download>
+                    <span>💻 HULP OP AFSTAND (€ 7,50 per kwartier)</span>
+                </a>
                 <a href="#agenda" class="btn btn-primary">
                     <span>📅 Plan een afspraak in</span>
                 </a>
@@ -586,260 +606,4 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="naam">Je Naam *</label>
-                            <input type="text" id="naam" name="Naam" class="form-control" placeholder="bijv. Jan de Vries" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefoon">Telefoonnummer / WhatsApp *</label>
-                            <input type="tel" id="telefoon" name="Telefoon" class="form-control" placeholder="06 - 12345678" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="datum">Gewenste Datum *</label>
-                            <input type="date" id="datum" name="Gewenste Datum" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="tijd">Gewenst Tijdstip *</label>
-                            <select id="tijd" name="Gewenst Tijdstip" class="form-control" required>
-                                <option value="">Kies een dagdeel...</option>
-                                <option value="Ochtend (09:00 - 12:00)">Ochtend (09:00 - 12:00)</option>
-                                <option value="Middag (13:00 - 17:00)">Middag (13:00 - 17:00)</option>
-                                <option value="Avond (18:30 - 21:00)">Avond (18:30 - 21:00)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="type_hulp">Type Hulp / Locatie *</label>
-                        <select id="type_hulp" name="Type Hulp" class="form-control" required>
-                            <option value="Aan huis">Aan huis</option>
-                            <option value="Werkplaats">Werkplaats</option>
-                            <option value="Hulp op afstand">Hulp op afstand</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="omschrijving">Omschrijving van de vraag of het probleem</label>
-                        <textarea id="omschrijving" name="Omschrijving" rows="4" class="form-control" placeholder="Waar kan ik je mee helpen? (bijv. APK + Virusscan, herinstallatie, bestandsherstel, printer instellen...)"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                        📅 Afspraakaanvraag Versturen
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tarievenlijst -->
-    <section class="section pricing" id="tarieven">
-        <div class="container">
-            <h2 class="section-title">Officiële Prijslijst</h2>
-            <p style="text-align: center; margin-bottom: 25px;">Standaard tarief aan huis/werkplaats: <strong>€ 15,- per kwartier</strong> (€ 60,- per uur). Duidelijke, vaste tarieven voor veelvoorkomende diensten.</p>
-            
-            <div class="pricing-table-wrapper">
-                <table class="pricing-table">
-                    <thead>
-                        <tr>
-                            <th>Dienst</th>
-                            <th>Gem. Tijdsduur</th>
-                            <th>Prijs</th>
-                            <th>Locatie</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Hulp op afstand nu bovenaan! -->
-                        <tr style="background-color: #f0f7ff;">
-                            <td><strong>Consult hulp op afstand</strong></td>
-                            <td>Per kwartier</td>
-                            <td><strong>€ 7,50 per kwartier</strong> <small>(€ 30,- per uur)</small></td>
-                            <td><span class="badge-loc">Op afstand</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Onderzoekskosten (Probleem onbekend)</strong><br><small>(Vervalt bij uitvoering van de uiteindelijke reparatie/dienst)</small></td>
-                            <td>-</td>
-                            <td><strong>€ 30,-</strong></td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bestandsherstel / Data Recovery</strong><br><small>(Van kapotte interne of externe harde schijven)</small></td>
-                            <td>Afhankelijk van schade</td>
-                            <td><strong>Prijsvoorstel vooraf</strong><br><small>(op basis van grootte &amp; schade)</small></td>
-                            <td><span class="badge-loc">Werkplaats</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>PC / Laptop Herinstallatie (schoon)</strong></td>
-                            <td>30 min.</td>
-                            <td>€ 30,-</td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>PC / Laptop Herinstallatie met bestandsbehoud</strong></td>
-                            <td>1,5 uur</td>
-                            <td>€ 90,- <small>(daarna € 15/kwartier)</small></td>
-                            <td><span class="badge-loc">Werkplaats</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>PC / Laptop Herinstallatie met bestandsbehoud &amp; instellingen</strong><br><small>(behoud e-mail, programma's &amp; instellingen)</small></td>
-                            <td>2 uur</td>
-                            <td>€ 120,- <small>(daarna € 15/kwartier)</small></td>
-                            <td><span class="badge-loc">Werkplaats</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Telefoon / Tablet schoon installeren</strong><br><small>(zonder bestanden overzetten)</small></td>
-                            <td>45 min.</td>
-                            <td>€ 45,-</td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Telefoon / Tablet oude telefoon naar nieuwe alles overzetten</strong></td>
-                            <td>2 uur</td>
-                            <td>€ 120,- <small>(daarna € 15/kwartier)</small></td>
-                            <td><span class="badge-loc">Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>PC / Laptop Virusscan &amp; verwijdering</strong></td>
-                            <td>1 uur</td>
-                            <td>€ 60,- <small>(daarna € 15/kwartier)</small></td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis / Op afstand</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>PC / Laptop APK</strong></td>
-                            <td>1 uur</td>
-                            <td>€ 60,- <small>(daarna € 15/kwartier)</small></td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>PC / Laptop APK + Virusscan Combi-deal</strong></td>
-                            <td>2 uur</td>
-                            <td><strong>€ 90,-</strong> <small style="color: green;">(€ 30,- pakketkorting!)</small></td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis / Op afstand</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Consult aan huis</strong></td>
-                            <td>Per kwartier</td>
-                            <td>€ 15,- per kwartier <small>(excl. voorrijdkosten)</small></td>
-                            <td><span class="badge-loc">Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Website maken</strong></td>
-                            <td>Per kwartier</td>
-                            <td>€ 15,- per kwartier <small>(excl. hostingkosten)</small></td>
-                            <td><span class="badge-loc">Werkplaats / Aan huis / Op afstand</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Printer installeren</strong></td>
-                            <td>30 min.</td>
-                            <td>€ 30,-</td>
-                            <td><span class="badge-loc">Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Printer cartridge / toner vervangen</strong></td>
-                            <td>15 min.</td>
-                            <td>€ 15,- <small>(excl. kosten cartridge/toner)</small></td>
-                            <td><span class="badge-loc">Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Wifi consult</strong></td>
-                            <td>45 min.</td>
-                            <td>€ 45,-</td>
-                            <td><span class="badge-loc">Aan huis</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Automatische back-up instellen</strong></td>
-                            <td>30 min.</td>
-                            <td>€ 30,-</td>
-                            <td><span class="badge-loc">Aan huis / Werkplaats / Op afstand</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Tabel Voorrijdkosten -->
-            <h3 class="sub-title">Overzicht Voorrijdkosten</h3>
-            <div class="pricing-table-wrapper">
-                <table class="pricing-table">
-                    <thead>
-                        <tr>
-                            <th>Regio / Plaats</th>
-                            <th>Voorrijdtarief</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Waddinxveen</strong></td>
-                            <td><strong style="color: green;">Gratis</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Zuidplas</strong> <small>(Zevenhuizen, Moerkapelle, Nieuwerkerk, Moordrecht)</small></td>
-                            <td><strong>€ 5,-</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Gouda</strong></td>
-                            <td><strong>€ 10,-</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Nesselande</strong></td>
-                            <td><strong>€ 10,-</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Boskoop</strong></td>
-                            <td><strong>€ 10,-</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Alphen a/d Rijn</strong></td>
-                            <td><strong>€ 15,-</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bodegraven-Reeuwijk</strong></td>
-                            <td><strong>€ 15,-</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="pricing-notes">
-                <p>📄 <strong>Afhandeling &amp; Facturatie:</strong> De werkzaamheden van B@S Computerhulp worden netjes en officieel gefactureerd via ons aangesloten verloningssysteem (Verloning.nl). Je ontvangt na afloop van de werkzaamheden overzichtelijk een factuur of iDEAL-betaallink per e-mail.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Neem Contact Op</h2>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Direct hulp nodig?</h3>
-                    <p>Heb je een vraag, wil je advies, of wil je direct een afspraak maken? Ik help je graag op een moment dat het jou uitkomt.</p>
-                    
-                    <ul class="info-list">
-                        <li><span class="info-list-icon">📍</span> Waddinxveen, Gouda, Zuidplas &amp; Omstreken</li>
-                        <li><span class="info-list-icon">📞</span> +31 6 27115982</li>
-                        <li><span class="info-list-icon">✉️</span> info@bascomputerhulp.nl</li>
-                        <li><span class="info-list-icon">🕒</span> Op afspraak</li>
-                    </ul>
-                </div>
-
-                <div class="contact-box">
-                    <h4>Direct een bericht sturen?</h4>
-                    <p>De snelste manier om een afspraak te maken of je vraag te stellen is via WhatsApp.</p>
-                    <a href="https://wa.me/31627115982?text=Hallo%20Bas,%20ik%20wil%20graag%20een%20afspraak%20maken%20voor%20computerhulp..." class="btn btn-whatsapp" style="width: 100%; justify-content: center; margin-bottom: 15px;" target="_blank">
-                        💬 Stuur een WhatsApp (+31 6 27115982)
-                    </a>
-                    <a href="mailto:info@bascomputerhulp.nl" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                        ✉️ Stuur een E-mail
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 B@S Computerhulp. Alle rechten voorbehouden.</p>
-        <p>Gevestigd te Waddinxveen | Geautomatiseerde facturatie via Verloningssysteem | <a href="#veiligheid">Algemene Voorwaarden</a></p>
-    </footer>
-
-</body>
-</html>
+                            <input type="text" id="naam" name="Naam
